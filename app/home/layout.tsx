@@ -2,7 +2,7 @@
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-import "./globals.css";
+import "../globals.css";
 import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";
 
@@ -44,7 +44,27 @@ export default function RootLayout({
   };
   return (
     <html>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <button
+          onClick={signUp}
+          className="text-white w-20 m-2 bg-slate-600 rounded"
+        >
+          Sign Up
+        </button>
+        <button
+          onClick={signIn}
+          className="text-white w-20 m-2 bg-slate-600 rounded"
+        >
+          Sign In
+        </button>
+        <button
+          onClick={signOut}
+          className="text-white w-20 m-2 bg-slate-600 rounded"
+        >
+          Sign Out
+        </button>
+        {children}
+      </body>
     </html>
   );
 }
